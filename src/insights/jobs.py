@@ -2,6 +2,8 @@ from functools import lru_cache
 from typing import List, Dict
 import csv
 
+path = 'data/jobs.csv'
+
 
 @lru_cache
 def read(path: str) -> List[Dict]:
@@ -15,8 +17,12 @@ def read(path: str) -> List[Dict]:
 
 
 def get_unique_job_types(path: str) -> List[str]:
+    contents = read(path)
+    for content in contents:
+        print(content['job_type'])
 
-    raise NotImplementedError
+
+get_unique_job_types(path)
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
