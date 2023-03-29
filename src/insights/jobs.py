@@ -2,36 +2,20 @@ from functools import lru_cache
 from typing import List, Dict
 import csv
 
-path = 'data/jobs.csv'
-
 
 @lru_cache
 def read(path: str) -> List[Dict]:
-    listDict = []
+    list_dict = []
     with open(path) as file:
         contents = csv.DictReader(file)
+        print(contents)
         for content in contents:
-            listDict.append(content)
-
-    print(listDict)
-    raise NotImplementedError
+            list_dict.append(content)
+    return list_dict
 
 
 def get_unique_job_types(path: str) -> List[str]:
-    """Checks all different job types and returns a list of them
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
     raise NotImplementedError
 
 
