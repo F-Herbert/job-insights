@@ -1,6 +1,6 @@
 from typing import List, Dict
 from src.insights.jobs import read
-
+# src.insights.
 path = 'data/jobs.csv'
 
 
@@ -10,8 +10,8 @@ def get_unique_industries(path: str) -> List[str]:
     for content in contents:
         if content['industry'] not in filter_contents:
             filter_contents.append(content['industry'])
-
-    return filter_contents
+    list_without_space = [char for char in filter_contents if char != '']
+    return list_without_space
 
 
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
