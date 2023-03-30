@@ -19,25 +19,20 @@ def get_max_salary(path: str) -> int:
     return max_number
 
 
-get_max_salary(path)
-
-
 def get_min_salary(path: str) -> int:
-    """Get the minimum salary of all jobs
+    contents = read(path)
+    all_values = []
+    for content in contents:
+        if content["min_salary"] not in contents:
+            if not content["min_salary"].isalpha():
+                all_values.append(content["min_salary"])
+    all_values_wihout_space = [
+        int(value) for value in all_values if value != ""
+    ]
+    return min(all_values_wihout_space)
 
-    Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    raise NotImplementedError
+get_min_salary(path)
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
