@@ -1,6 +1,5 @@
 from typing import Union, List, Dict
 from src.insights.jobs import read
-
 # src.insights.
 path = "data/jobs.csv"
 
