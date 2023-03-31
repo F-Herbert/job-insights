@@ -1,3 +1,1 @@
-# if int(salary) == 0:
-#     print('caiu aqui')
-#     return False
+print(filter_by_salary_range(jobs, 50000000))
