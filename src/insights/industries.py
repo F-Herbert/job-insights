@@ -18,5 +18,5 @@ def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
     list_of_jobs = []
     for job in jobs:
         if job['industry'] == industry:
-            list_of_jobs.append(job["industry"])
+            list_of_jobs.append(job)
     return list_of_jobs
