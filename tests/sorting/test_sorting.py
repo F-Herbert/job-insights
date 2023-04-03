@@ -1,16 +1,16 @@
 from src.pre_built.sorting import sort_by
-
-dic_mock = {"title": "Maquinista", "salary": "2000", "type": "trainee"}
-dick_mock2 = {
-    "title": "Analista de Software",
-    "salary": "4000",
-    "type": "full time",
-}
-dick_mock3 = {"title": "Motorista", "salary": "3000", "type": "full time"}
-
-array_of_dict = [dic_mock, dick_mock2, dick_mock3]
+import pytest
 
 
-def test_sort_by_criteria():
-    result = sort_by(array_of_dict, "min_salary")
-    assert result == dic_mock
+@pytest.fixture
+def file():
+    return [
+        {"date_posted": "2023-01-18", "max_salary": 5000, "min_salary": ""},
+        {"date_posted": "", "max_salary": 3000, "min_salary": 2000},
+        {"date_posted": "2023-02-01", "max_salary": "", "min_salary": 5000},
+    ]
+
+
+def test_sort_by_criteria(file):
+    sort_by(file, "date_posted")
+    assert file[0]["date_posted"] == "2023-02-01"
