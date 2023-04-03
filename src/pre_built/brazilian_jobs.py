@@ -24,3 +24,4 @@ def read_brazilian_file(path: str) -> List[Dict]:
         job["type"] = job.pop("tipo")
 
     return dict_jobs
+    
