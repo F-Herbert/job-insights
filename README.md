@@ -19,6 +19,8 @@ Escrever seus próprios módulos e importá-los em outros códigos.
 
 #  Orientações
 
+<details>
+<summary><strong>Dependencias</strong></summary><br />
 1.  Clone o repositório
 
 -   Use o comando:  `git clone git@github.com:F-Herbert/job-insights.git`.
@@ -32,11 +34,52 @@ Escrever seus próprios módulos e importá-los em outros códigos.
 3.  Instale as dependências
 
 -   `python3 -m pip install -r dev-requirements.txt`
+</details>
 
+<details>
+  <summary><strong>Testes</strong></summary><br />
 
-# Arquivos
+  Para executar os testes certifique-se de que você está com o ambiente virtual ativado.
 
--   todos arquivos que foi desenvolvido por mim está em:
-    -   `src/insights`
-- para testar os requisitos você pode usar a extensão:
-  - `code runner`
+  <strong>Executar os testes</strong>
+
+  ```bash
+  $ python3 -m pytest
+  ```
+
+  O arquivo `pyproject.toml` já configura corretamente o pytest. Entretanto, caso você tenha problemas com isso e queira explicitamente uma saída completa, o comando é:
+
+  ```bash
+  python3 -m pytest -s -vv
+  ```
+
+  Caso precise executar apenas um arquivo de testes basta executar o comando:
+
+  ```bash
+  python3 -m pytest tests/nomedoarquivo.py
+  ```
+
+  Caso precise executar apenas uma função de testes basta executar o comando:
+
+  ```bash
+  python3 -m pytest -k nome_da_func_de_tests
+  ```
+
+  Se desejar que os testes parem de ser executados quando acontecer o primeiro erro, use o parâmetro `-x`
+
+  ```bash
+  python3 -m pytest -x tests/test_jobs.py
+  ```
+  
+  Para executar um teste específico de um arquivo, basta executar o comando:
+
+  ```bash
+  python3 -m pytest tests/nomedoarquivo.py::test_nome_do_teste
+  ```
+
+  Se quiser saber mais sobre a instalação de dependências com `pip`, veja esse [artigo](https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1).
+
+  Além dos testes com o Pytest, você pode (e vai ser bem bacana) rodar a aplicação flask para visualizar no navegador o resultado do desenvolvimento das funções.
+  Para isso, digite o comando `flask run`, e acesse o site gerado pelo Flask em `http://localhost:5000`. No começo do desenvolvimento, você verá que muitas coisas não funcionam, mas conforme você for implementando os requisitos, perceberá que a aplicação web começa a utilizar suas implementações e passa a ganhar vida.
+
+</details>
